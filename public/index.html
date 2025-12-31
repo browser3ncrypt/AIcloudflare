@@ -39,26 +39,26 @@
      <div>
 </div>
      <div>
-        <button id="shared-button">👍 Like Room (0)</button>
+        <button id="like-btn">Like Room (0)</button>
 
 <script>
-  // Assuming you already have a WebSocket 'ws' connected
-  const button = document.getElementById('shared-button');
-  let count = 0;
+  let currentLikes = 0;
+  const likeBtn = document.getElementById("like-btn");
 
-  button.addEventListener('click', () => {
-    ws.send(JSON.stringify({ type: 'like' }));  // Custom event
+  socket.addEventListener("message", (event) => {
+    try {
+      const msg = JSON.parse(event.data);
+
+      if (msg.type === "likes") {
+        currentLikes = msg.count;
+        likeBtn.textContent = `Like Room (${currentLikes})`;
+      }
+      // your existing chat handling...
+    } catch (e) {}
   });
 
-  ws.addEventListener('message', (event) => {
-    const data = JSON.parse(event.data);
-    if (data.type === 'like') {
-      count++;
-      button.textContent = `👍 Like Room (${count})`;
-      // Optional: play sound, flash screen, etc.
-    } else if (data.type === 'chat') {
-      // Handle normal messages
-    }
+  likeBtn.addEventListener("click", () => {
+    socket.send(JSON.stringify({ type: "like" }));
   });
 </script>
 				</div>
