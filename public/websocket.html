@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Chat</title>
+</head>
+<body>
+  <h1>WebSocket Chat</h1>
+  <input type="text" id="messageInput" placeholder="Type a message..." />
+  <button onclick="sendMessage()">Send</button>
+
+  <ul id="messages"></ul>
+
+  <script>
+  // Replace with your actual deployed Worker URL
+  const socket = new WebSocket("wss://meta.metaour.workers.dev"); 
+  // Example: if your project is named "metaour-chat", it might be:
+  // wss://metaour-chat.yourname.workers.dev
+
+  socket.onopen = () => {
+    console.log("Connected to chat server");
+    // Optional: show "Connected" status in UI
+  };
+
+  socket.onmessage = (event) => {
+    try {
+      const data = JSON.parse(event.data);
+      console.log("Received:", data);
+
+      // Handle different message types here
+      if (data.type === "chat") {
+        // Add message to chat log
+        addMessageToChat(data.text, data.user || "Someone");
+      } else if (data.type === "likes") {
+        updateLikeCount(data.count);
+      }
+      // Add more handlers as needed
+    } catch (e) {
+      console.error("Invalid message format", e);
+    }
+  };
+
+  socket.onclose = () => {
+    console.log("Disconnected from chat server");
+    // Optional: show reconnection UI
+  };
+
+  socket.onerror = (error) => {
+    console.error("WebSocket error:", error);
+  };
+
+  // Example function to send a chat message
+  function sendChatMessage(text) {
+    if (socket.readyState === WebSocket.OPEN) {
+      socket.send(JSON.stringify({
+        type: "chat",
+        text: text,
+        user: "You"  // Replace with actual username later
+      }));
+    }
+  }
+
+  // Example usage: connect to input field + button
+  document.getElementById("send-button").addEventListener("click", () => {
+    const input = document.getElementById("message-input");
+    const text = input.value.trim();
+    if (text) {
+      sendChatMessage(text);
+      input.value = "";
+    }
+  });
+</script>
+</body>
+</html>
