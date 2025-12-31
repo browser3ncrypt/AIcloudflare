@@ -18,6 +18,9 @@ export class Chat extends Server<Env> {
 
         onStart() {
                 // this is where you can initialize things that need to be done before the server starts
+if (url.pathname === "/faq") {
+  return env.ASSETS.fetch(new Request("https://" + url.host + "/faq.html", request));
+}
                 // for example, load previous messages from a database or a service
 
                 // create the messages table if it doesn't exist
