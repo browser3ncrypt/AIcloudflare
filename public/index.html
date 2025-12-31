@@ -113,29 +113,7 @@
 					</p>
      <div>
 </div>
-     <div>
-        <button id="like-btn">Like♥️Room (0)</button>
-
-<script>
-  let currentLikes = 0;
-  const likeBtn = document.getElementById("like-btn");
-
-  socket.addEventListener("message", (event) => {
-    try {
-      const msg = JSON.parse(event.data);
-
-      if (msg.type === "likes") {
-        currentLikes = msg.count;
-        likeBtn.textContent = `Like Room (${currentLikes})`;
-      }
-      // your existing chat handling...
-    } catch (e) {}
-  });
-
-  likeBtn.addEventListener("click", () => {
-    socket.send(JSON.stringify({ type: "like" }));
-  });
-</script>
+     
 				</div>
 				<div class="two-thirds column" id="root"></div>
 			</div>
