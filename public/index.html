@@ -5,8 +5,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 		<meta charset="utf-8" />
 		<title>Chat!</title>
-		<meta name="description" content="" />
-		<meta name="author" content="" />
+		<meta name="description" content="METAour Cosmo Chatroom" />
+		<meta name="author" content="METAour" />
 
 		<!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -32,11 +32,35 @@
 		<div class="container" style="width: 95%; height: 100%">
 			<div class="row" style="height: 100%">
 				<div class="one-third column" style="margin-top: 25%">
-					<h4><b>Chat</b>, powered by Durable Objects</h4>
+					<h4><b>Chat</b>, POWERED by 🚀🌎 Durable Objects</h4>
 					<p>
-						This chat room is hosted in a single Durable Object, running in one
-						process in one machine in one location, very close to the users.
+						This chat room is hosted in a single instance, which only allows people to communicate who have the shared link. Every click of the Launch button creates a new instance and a new Chatroom. 100% Encrypted with cutting edge serverless Warp speed connectivity.
 					</p>
+     <div>
+</div>
+     <div>
+        <button id="shared-button">👍 Like Room (0)</button>
+
+<script>
+  // Assuming you already have a WebSocket 'ws' connected
+  const button = document.getElementById('shared-button');
+  let count = 0;
+
+  button.addEventListener('click', () => {
+    ws.send(JSON.stringify({ type: 'like' }));  // Custom event
+  });
+
+  ws.addEventListener('message', (event) => {
+    const data = JSON.parse(event.data);
+    if (data.type === 'like') {
+      count++;
+      button.textContent = `👍 Like Room (${count})`;
+      // Optional: play sound, flash screen, etc.
+    } else if (data.type === 'chat') {
+      // Handle normal messages
+    }
+  });
+</script>
 				</div>
 				<div class="two-thirds column" id="root"></div>
 			</div>
