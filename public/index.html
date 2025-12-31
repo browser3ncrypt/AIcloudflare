@@ -14,7 +14,82 @@
 
 		<!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<style>
+  #floating-faq-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #0d6efd;           /* Matches your main site blue */
+    color: white;
+    border: none;
+    border-radius: 50%;                  /* Perfect circle */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.4);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
 
+  #floating-faq-btn:hover {
+    width: 140px;
+    border-radius: 30px;
+    background-color: #0b5ed7;
+    box-shadow: 0 8px 25px rgba(13, 110, 253, 0.5);
+    transform: translateY(-3px);
+  }
+
+  .faq-icon {
+    font-size: 32px;
+    margin-right: 8px;
+  }
+
+  .faq-text {
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+  }
+
+  #floating-faq-btn:hover .faq-text {
+    opacity: 1;
+  }
+
+  /* Optional: Pulse animation on load */
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(13, 110, 253, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0); }
+  }
+
+  #floating-faq-btn {
+    animation: pulse 2s infinite;
+  }
+
+  #floating-faq-btn:hover {
+    animation: none;
+  }
+
+  /* Responsive: smaller on mobile */
+  @media (max-width: 480px) {
+    #floating-faq-btn {
+      width: 55px;
+      height: 55px;
+      bottom: 20px;
+      right: 20px;
+    }
+    #floating-faq-btn:hover {
+      width: 120px;
+    }
+  }
+</style>
 		<!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 		<link rel="stylesheet" href="css/normalize.css" />
@@ -68,5 +143,14 @@
 
 		<!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+      <script>
+  document.getElementById("floating-faq-btn").addEventListener("click", () => {
+    window.location.href = "/faq";  // Redirects to meta.metaour.com/faq
+  });
+</script>
+<button id="floating-faq-btn" aria-label="Frequently Asked Questions">
+  <span class="faq-text">FAQ</span>
+  <span class="faq-icon">?</span>
+</button>
 	</body>
 </html>
