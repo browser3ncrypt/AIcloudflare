@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - METAour.com</title>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 40px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .globe-icon {
+            font-size: 3rem;
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+        .logo {
+            font-size: 2.5rem;
+            color: #0d6efd;
+            margin: 10px 0;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: #555;
+        }
+        h1 {
+            font-size: 2.2rem;
+            color: #0d6efd;
+            margin-top: 0;
+        }
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0d6efd;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question::after {
+            content: '\f078'; /* chevron down */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            transition: transform 0.3s;
+        }
+        .faq-question.active::after {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #666;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+        .faq-answer.open {
+            max-height: 500px; /* adjust if needed */
+            padding-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #0d6efd;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="globe-icon">
+                <i class="fas fa-globe"></i>
+            </div>
+            <h1 class="logo">METAour.com</h1>
+            <p class="tagline">Meta-focused community hub for shared experiences</p>
+            <h1>Frequently Asked Questions</h1>
+        </header>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">What is METAour.com?</div>
+                <div class="faq-answer">
+                    METAour.com is a next-generation, browser-based metaverse community platform. It's designed as an accessible hub where people can connect through shared stories, ideas, immersive events, and collaborative virtual spaces — all without needing downloads or expensive VR headsets initially.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do I need a VR headset to join?</div>
+                <div class="faq-answer">
+                    No! METAour starts as a fully web-based experience using technologies like WebXR and A-Frame. You can explore on desktop, mobile, or tablet right in your browser. VR headset support is planned for the future to enhance immersion.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is METAour.com free to use?</div>
+                <div class="faq-answer">
+                    Yes, core access and community features will be free. We may introduce optional premium features or cosmetic items in the future, but the platform is built to be inclusive and open to everyone.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">When will the full platform launch?</div>
+                <div class="faq-answer">
+                    We're currently in early development with a live chat prototype at meta.metaour.com. The full metaverse hub (avatars, custom spaces, events) is targeted for launch in 2026. Sign up on the main site for updates!
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How is METAour different from other metaverse platforms?</div>
+                <div class="faq-answer">
+                    METAour emphasizes accessibility (no app downloads), community governance, user-generated content, and real human connections. We're inspired by open platforms like Decentraland but prioritize ease-of-use and browser-first experiences over heavy crypto integration initially.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is there moderation and safety measures?</div>
+                <div class="faq-answer">
+                    Yes — safety is a priority. We'll have community guidelines, reporting tools, moderation teams, and features like personal space bubbles to ensure a positive environment for all users.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I create my own spaces or events?</div>
+                <div class="faq-answer">
+                    Absolutely! User-generated content is core to METAour. You'll be able to build custom rooms, galleries, host meetups, workshops, or art exhibitions using easy tools.
+                </div>
+            </div>
+        </div>
+
+        <a href="/" class="back-link">&larr; Back to Chat</a>
+
+        <footer>
+            &copy; 2025 METAour.com | All rights reserved • Last updated December 31, 2025
+        </footer>
+    </div>
+
+    <script>
+        // Simple accordion functionality
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+                const answer = item.nextElementSibling;
+                answer.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
